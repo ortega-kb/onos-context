@@ -1,0 +1,36 @@
+services:
+  onos:
+    container_name: onos-mcp
+    restart: always
+    image: onosproject/onos:latest
+    network_mode: host
+    ports:
+      - "80:80"
+      - "8181:8181"
+      - "8101:8101"
+      - "5005:5005"
+      - "830:830"
+      - "6653:6653"
+
+
+  mininet:
+    container_name: mininet-mcp
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile.mininet
+    tty: true
+    privileged: true
+    environment:
+      - DISPLAY=${DISPLAY}
+    volumes:
+      - ./topology:/root/topology/
+    network_mode: host
+
+
+
+networks:
+  context_net:
+
+
+
