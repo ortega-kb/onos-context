@@ -56,7 +56,7 @@ def run():
     setLogLevel('info')
 
     # ONOS controller ip address
-    controller_ip = '10.66.64.70'
+    controller_ip = 'localhost'
 
     net = Mininet(
         topo=HospitalTopo(),

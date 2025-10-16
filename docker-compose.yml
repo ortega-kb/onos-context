@@ -12,6 +12,16 @@ services:
       - "830:830"
       - "6653:6653"
 
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama-mcp
+    restart: unless-stopped
+    ports:
+      - "11434:11434"
+    volumes:
+      - ./ollama_data:/root/.ollama
+    environment:
+      - OLLAMA_HOST=0.0.0.0
 
   mininet:
     container_name: mininet-mcp

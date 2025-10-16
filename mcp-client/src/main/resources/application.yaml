@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: mcp-client
+
+
+  ai:
+    mcp:
+      client:
+        sse:
+          transport-mode: WEBFLUX
+          connections:
+            account-mcp-server:
+              url: ${ACCOUNT_MCP_SERVER_URL:http://localhost:8081}
+        type: SYNC
+        request-timeout: 30s
+
+    ollama:
+      chat:
+        options:
+          model: llama3.2:latest
+        model: llama3.2
+
+
+server:
+  port: 8082

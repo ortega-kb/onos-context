@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: mcp-server
+
+  ai:
+    mcp:
+      server:
+        name: onos-context-mcp-server
+        version: 1.0.0
+        type: SYNC
+        stdio:
+          enabled: false
+        sse-message-endpoint: /sse
+
+logging:
+  level:
+    org:
+      springframework:
+        ai: DEBUG
+
+mcp-server:
+  onos-controller:
+    url: ${ONOS_CONTROLLER_URL:http://localhost:8181}
+    username: ${ONOS_USERNAME:onos}
+    password: ${ONOS_PASSWORD:rocks}
+
+server:
+  port: 8081
